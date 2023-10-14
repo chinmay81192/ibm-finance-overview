@@ -1,0 +1,36 @@
+@use "../../styles/colors";
+@use "../../styles/fonts";
+
+@mixin StockValueStyles($color, $size, $weight) {
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+}
+
+@mixin SubValue($color) {
+  @include StockValueStyles($color, 24px, 500);
+  margin-left: 8px;
+}
+
+.MainValueContainer {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 0px;
+}
+
+.MainValue {
+  @include StockValueStyles(colors.$default, 36px, 700);
+  margin-bottom: -4px;
+}
+
+.SubValue-negative {
+  @include SubValue(colors.$negative);
+}
+
+.SubValue-positive {
+  @include SubValue(colors.$postive);
+}
+
+.SubHeading {
+  @include fonts.subTitleText;
+}

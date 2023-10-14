@@ -1,0 +1,29 @@
+@use "./styles/colors";
+@use "./styles/mixins";
+
+.Container {
+  @include mixins.ContainerDimension;
+  background: colors.$appBackground;
+  margin: auto;
+  width: 70%;
+}
+
+.TabbedContainer {
+  width: 100%;
+  border-bottom: 3px solid colors.$separator;
+}
+.Tabs {
+  display: flex;
+  align-items: baseline;
+  margin-left: 80px;
+  margin: 0px 0px 0px 80px;
+  list-style-type: none;
+}
+.TabElement {
+  @include mixins.TabButton;
+}
+
+.TabElementSelected {
+  color: colors.$default;
+  border-bottom: 3px solid colors.$link;
+}
