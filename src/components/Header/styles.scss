@@ -1,0 +1,15 @@
+@use "../../styles/mixins";
+@use "../../styles/fonts";
+
+.Header {
+  @include mixins.HeaderDimension;
+  padding: 24px;
+}
+
+.MainTitle {
+  margin-bottom: 0px;
+}
+
+.SubTitle {
+  @include fonts.subTitleText;
+}

@@ -1,0 +1,7 @@
+@use "./colors";
+
+@mixin subTitleText {
+  color: colors.$subTitle;
+  font-size: 12px;
+  font-family: Yahoo Sans Finance, Helvetica Neue, Arial, sans-serif;
+}
