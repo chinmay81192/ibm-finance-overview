@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const BalanceSheet: React.FC = () => {
+  useEffect(() => {
+    console.log("Balance sheet");
+  }, []);
   return <>Balance Sheet</>;
 };
 

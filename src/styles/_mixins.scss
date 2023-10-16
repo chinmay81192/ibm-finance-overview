@@ -14,6 +14,10 @@
   height: 20%;
 }
 
+@mixin ContentDimension {
+  height: 70%;
+}
+
 @mixin FlexContainer {
   display: flex;
   align-items: center;
