@@ -1,5 +1,22 @@
 @use "../../styles/mixins";
+@use "../../styles/colors";
 
-.Container {
-    @include mixins.ContainerDimension
+.TablePadding {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+.StyleTable {
+  border-collapse: collapse;
+  margin-top: 32px;
+  width: 80%;
+}
+
+td:nth-child(2n + 3) {
+  background: colors.$tablecell;
+}
+
+.ApplyShadow {
+  box-shadow: 7px 0px 10px colors.$tablecell;
 }

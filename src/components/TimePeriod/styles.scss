@@ -1,0 +1,16 @@
+@use "../../styles/mixins";
+@use "../../styles/colors";
+
+.TimePeriodContainer {
+  @include mixins.FlexContainer;
+  margin-left: 120px;
+  width: 120px;
+}
+
+.styleSpan {
+  cursor: pointer;
+}
+
+.SelectedTimePeriod {
+  color: colors.$link;
+}

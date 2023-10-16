@@ -7,7 +7,7 @@ import {
 
 export const fetchData = async <T>(
   endpoint: string,
-  formatter: (resp: unknown) => T
+  formatter?: (resp: unknown) => T
 ): Promise<T> => {
   const url = `https://www.alphavantage.co/query?function=${endpoint}&symbol=IBM&apikey=demo`;
   const resp = await fetch(url);
