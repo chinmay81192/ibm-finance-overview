@@ -27,3 +27,14 @@
   color: colors.$default;
   border-bottom: 3px solid colors.$link;
 }
+
+.ContentContainer {
+  @include mixins.ContentDimension;
+}
+
+.StyleLink {
+  text-decoration: none;
+  &:hover {
+    background-color: unset;
+  }
+}

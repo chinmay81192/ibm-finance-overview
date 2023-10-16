@@ -1,7 +1,9 @@
-import React, { useMemo, useState } from "react";
+import React, { Suspense, useMemo, useState } from "react";
 import Header from "./components/Header";
 import "./Root.scss";
 import { TabElements } from "./types";
+import AppRoutes from "./AppRoutes";
+import { Link } from "react-router-dom";
 
 const INCOME_STATEMENT = TabElements.incomeStatement;
 const BALANCE_SHEET = TabElements.balanceSheet;
@@ -39,18 +41,31 @@ const Root: React.FC = () => {
         <ul className="Tabs">
           {Object.values(tabs).map((tab) => (
             <li
+              value={tab.key}
+              key={tab.key}
+              onClick={() => handleTabChange(tab.key)}
               className={
                 "TabElement" +
                 (selectedTab === tab.key ? " TabElementSelected" : "")
               }
-              value={tab.key}
-              key={tab.key}
-              onClick={() => handleTabChange(tab.key)}
             >
-              {tab.label}
+              <Link
+                className={
+                  "StyleLink TabElement" +
+                  (selectedTab === tab.key ? " TabElementSelected" : "")
+                }
+                to={"/" + tab.key}
+              >
+                {tab.label}
+              </Link>
             </li>
           ))}
         </ul>
+      </div>
+      <div className="ContentContainer">
+        <Suspense fallback={<h1>Loading...</h1>}>
+          <AppRoutes />
+        </Suspense>
       </div>
     </div>
   );
