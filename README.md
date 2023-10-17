@@ -1,3 +1,15 @@
+#Steps to run the project
+
+Prerequisites
+Install NodeJS
+
+Steps
+1. Clone repository
+2. Execute npm install
+3. Execute npm start to open development server
+4. Execute npm run test to run tests
+
+
 # ibm-finance-overview
 UI to show the "Chart", "Balance Sheet" and the "Income Statement" information of IBM stock data having the Yahoo finance page as a template
 
