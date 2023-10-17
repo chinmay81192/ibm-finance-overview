@@ -4,33 +4,35 @@ import "./styles.scss";
 export type Period = "annual" | "quaterly";
 
 interface TimePeriodProps {
-  handleClick: (period: Period) => void;
-  selectedTimePeriod: Period;
+  handleClick: (period: string) => void;
+  selectedTimePeriod: string;
+  timePeriods: string[];
 }
 
 const TimePeriod: React.FC<TimePeriodProps> = ({
   handleClick,
   selectedTimePeriod,
+  timePeriods,
 }: TimePeriodProps) => {
   return (
     <p className="TimePeriodContainer">
-      <span
-        className={`styleSpan ${
-          selectedTimePeriod === "annual" ? "SelectedTimePeriod" : ""
-        }`}
-        onClick={() => handleClick("annual")}
-      >
-        Annual
-      </span>
-      <hr style={{ height: "20px" }} />
-      <span
-        className={`styleSpan ${
-          selectedTimePeriod === "quaterly" ? "SelectedTimePeriod" : ""
-        }`}
-        onClick={() => handleClick("quaterly")}
-      >
-        Quaterly
-      </span>
+      {timePeriods.map((period, idx) => (
+        <>
+          <span
+            key={idx}
+            className={`styleSpan ${
+              selectedTimePeriod === period ? "SelectedTimePeriod" : ""
+            }`}
+            onClick={() => {
+              handleClick(period);
+            }}
+            data-testid={`option-${period}`}
+          >
+            {period}
+          </span>
+          {idx !== timePeriods.length - 1 && <hr className="StyleDivider" />}
+        </>
+      ))}
     </p>
   );
 };

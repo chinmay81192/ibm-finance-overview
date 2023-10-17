@@ -4,13 +4,19 @@
 .TimePeriodContainer {
   @include mixins.FlexContainer;
   margin-left: 120px;
-  width: 120px;
+  width: fit-content;
 }
 
 .styleSpan {
   cursor: pointer;
+  margin: 0px 8px;
+  font-weight: bold;
 }
 
 .SelectedTimePeriod {
   color: colors.$link;
+}
+
+.StyleDivider {
+  height: 20px;
 }

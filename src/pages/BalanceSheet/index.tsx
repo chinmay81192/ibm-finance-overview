@@ -6,7 +6,7 @@ import TimePeriod, { Period } from "../../components/TimePeriod";
 
 type Response = ResponseObject<BalanceSheetObject>;
 
-const BalanceSheet: React.FC = () => {
+function BalanceSheet() {
   const [selectedPeriod, setSelectedPeriod] = useState<Period>("annual");
   const [balanceSheetData, setBalanceSheetData] = useState<Partial<Response>>(
     {}
@@ -30,8 +30,11 @@ const BalanceSheet: React.FC = () => {
   return (
     <div className="IncomeStatementContainer">
       <TimePeriod
-        handleClick={(period) => setSelectedPeriod(period)}
+        handleClick={(period) => {
+          setSelectedPeriod(period as Period);
+        }}
         selectedTimePeriod={selectedPeriod}
+        timePeriods={["annual", "quaterly"]}
       />
       <PricesTable
         data={balanceSheet}
@@ -39,6 +42,6 @@ const BalanceSheet: React.FC = () => {
       />
     </div>
   );
-};
+}
 
 export default BalanceSheet;

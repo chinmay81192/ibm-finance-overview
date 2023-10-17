@@ -1,5 +1,3 @@
-import { string } from "yargs";
-
 export enum TabElements {
   chart = "chart",
   incomeStatement = "incomeStatement",
@@ -10,6 +8,14 @@ export enum Endpoints {
   Chart = "TIME_SERIES_DAILY",
   IncomeStatement = "INCOME_STATEMENT",
   BalanceSheet = "BALANCE_SHEET",
+}
+
+export interface TimeSeriesPoint {
+  open: number;
+  close: number;
+  high: number;
+  low: number;
+  volume: number;
 }
 
 export interface TimeSeriesData {

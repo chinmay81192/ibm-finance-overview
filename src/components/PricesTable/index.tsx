@@ -24,7 +24,7 @@ function PricesTable<T>(props: PricesTableProps<T>) {
             <tr>
               <th className="TablePadding ApplyShadow">Breakdown</th>
 
-              {data?.map((d: T) => (
+              {data?.map((d: T, index: number) => (
                 <th className="TablePadding">
                   {(d as { fiscalDateEnding: string })?.["fiscalDateEnding"]}
                 </th>
@@ -40,8 +40,10 @@ function PricesTable<T>(props: PricesTableProps<T>) {
                 >
                   {field}
                 </td>
-                {data?.map((d: any) => (
-                  <td className="TablePadding">{d?.[field]}</td>
+                {data?.map((d: T) => (
+                  <td className="TablePadding">
+                    {(d as { [field: string]: string })?.[field]}
+                  </td>
                 ))}
               </tr>
             ))}

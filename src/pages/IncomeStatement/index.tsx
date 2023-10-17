@@ -27,8 +27,9 @@ const IncomeStatement: React.FC = () => {
   return (
     <div className="IncomeStatementContainer">
       <TimePeriod
-        handleClick={(period) => setSelectedPeriod(period)}
+        handleClick={(period) => setSelectedPeriod(period as Period)}
         selectedTimePeriod={selectedPeriod}
+        timePeriods={["annual", "quaterly"]}
       />
       <PricesTable
         data={income}

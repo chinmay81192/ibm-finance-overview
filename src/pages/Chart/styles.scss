@@ -1,0 +1,7 @@
+@use "../../styles/mixins";
+
+.FilterContainer {
+  @include mixins.FlexContainer;
+  justify-content: center;
+  margin-top: 10px;
+}
