@@ -2,6 +2,7 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import BalanceSheet from "./index";
 import { wait } from "@testing-library/user-event/dist/utils";
+import { act } from "react-dom/test-utils";
 
 describe("Balance Sheet Component", () => {
   test("renders annual option", () => {
@@ -25,8 +26,12 @@ describe("Balance Sheet Component", () => {
       "2019-12-31",
       "2018-12-31",
     ];
-    const button = screen.getByTestId("option-annual");
-    button.click();
+
+    act(() => {
+      const button = screen.getByTestId("option-annual");
+      button.click();
+    });
+
     await wait(1000);
     dates.forEach((date) => {
       const element = screen.getByText(date);
@@ -46,8 +51,10 @@ describe("Balance Sheet Component", () => {
       "2021-12-31",
       "2021-09-30",
     ];
-    const button = screen.getByTestId("option-quaterly");
-    button.click();
+    act(() => {
+      const button = screen.getByTestId("option-quaterly");
+      button.click();
+    });
     await wait(1000);
     dates.forEach((date) => {
       const element = screen.getByText(date);
